@@ -20,6 +20,15 @@ function showUser() {
     selUser.style.display = "none"
   }
 }
+function toggle(mode) {
+  if (mode === 'dark') {
+      document.getElementById("mainBody").style.backgroundColor = "#000000";
+      document.getElementById("mainBody").style.color = "#ffffff";
+  } else {
+      document.getElementById("mainBody").style.backgroundColor = "#ffffff";
+      document.getElementById("mainBody").style.color = "#000000";
+  }
+}
 function saveData() {
   let amount = Number(document.getElementById("amount").value);
   let type = document.getElementById("type").value;
@@ -102,10 +111,10 @@ function chkUser() {
 }
 function showForm() {
   let str = `
-  <h2>Registration Form</h2>
-  <p><input type="text" id="name" placeholder="Name"></p>
-  <p><input type="text" id="email" placeholder="Email"></p>
-  <p><input type="password" id="password" placeholder="Password"></p>
+  <h2 style="color:green;" >Register here!!</h2>
+  <p><input type="text" id="name" placeholder="Name" required></p>
+  <p><input type="text" id="email" placeholder="Email" required></p>
+  <p><input type="password" id="password" placeholder="Password" required></p>
   <p><input type="date" id="dob"></p>
   <p><button onclick='addUser()'>Submit</button></p>
   <p>Already a member?<button onclick='showLogin()'>Login Here</button></p>
@@ -115,10 +124,10 @@ function showForm() {
 function showLogin() {
   let str = `
   <div>
-      <h2>Login Form</h2>
+      <h2 style="color:green;" >Login Here!!</h2>
       <div id='msg'></div>
-      <p><input id="email" type="text"></p>
-      <p><input id="password" type="password"></p>
+      <p><input id="email" type="text" placeholder="Enter your registerd email" required></p>
+      <p><input id="password" type="password" placeholder="Enter password" required></p>
       <button onclick='chkUser()'>Log In</button>
       <p><button onclick='showForm()'>Create Account</button></p>
   </div>
